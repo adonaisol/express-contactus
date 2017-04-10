@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title><%= name %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Thank you to <%= title %></p>
+    <h1>Thanks <%= name %>!</h1>
+    <p>Thank you for your message, <%= name %>. We will get back to you!</p>
+    <input type="hidden" name="_csrf" value="<%= csrftoken %> >">
   </body>
 </html>

@@ -1,1 +1,1 @@
-{"name":"Adonai Solomon","type":"general","message":"This is a great app","ip":"::ffff:127.0.0.1"}
+{"name":"Kaleb","type":"suggestion","message":"I am legendary!!","_csrf":"7Nt5OplL-4drWM9N4NfHD4zMSV_NniSPg3-8","ip":"::ffff:127.0.0.1"}

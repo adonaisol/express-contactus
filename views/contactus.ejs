@@ -29,8 +29,11 @@
             <textarea class="pure-input-1"  name="message"></textarea>
 
             <button type="submit" class="pure-button pure-button-primary">Send Message</button>
+             <input type="hidden" name="_csrf" value="<%= csrftoken %>">
         </fieldset>
     </form>
+      <div> <%= errors!= "" ? errors[0].msg : null %></div>
+     
     </div>
     </div>
   </body>

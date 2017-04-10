@@ -3,8 +3,10 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
 var bodyParser = require('body-parser');
 var validator = require('express-validator');
+var csrf = require('csurf');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -25,21 +27,37 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(validator());
+app.use(csrf({ cookie: true }));
+//var csrfProtection = csrf({ cookie: true });
+
+app.use(function (req, res, next) {
+  res.cookie('XSRF-TOKEN', req.csrfToken());
+  res.locals.csrftoken = req.csrfToken();
+  next();
+})
 
 app.use('/', index);
 app.use('/users', users);
 app.use('/contactus', contact);
 app.use('/thankyou', thankyou);
 
+// error handler for tampered tokens
+app.use(function (err, req, res, next) {
+  if (err.code !== 'EBADCSRFTOKEN') return next(err);
+  // handle CSRF token errors here
+  res.status(403)
+  res.send('form tampered with');
+});
+
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
