@@ -1,3 +1,3 @@
 # express-contactus
 
-Solution for the Contact Us exercise in Expresee
+Solution for the Contact Us exercise in Express
