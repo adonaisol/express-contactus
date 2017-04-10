@@ -1,0 +1,1 @@
+{"name":"Adonai Solomon","type":"general","message":"This is a great app","ip":"::ffff:127.0.0.1"}

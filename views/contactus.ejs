@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="pure-g">
+    <div class="pure-u-1-4"></div>
+    <div class="pure-u-1-2">
+    <h1><%= title %></h1>
+    <form class="pure-form pure-form-stacked" method="post" action="contactus">
+        <fieldset>
+            <legend>Send us your message below</legend>
+
+            <label for="name">Full Name</label>
+            <input id="name" class="pure-input-1" type="text" name="name" placeholder="Full Name">
+
+            <label for="type">Type</label>
+            <select id="type" name="type" class="pure-input-1" placeholder="Select Type" >
+                <option value="suggestion">Suggestion</option>
+                <option value="complaint">Complaint</option>
+                <option value="general">General</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea class="pure-input-1"  name="message"></textarea>
+
+            <button type="submit" class="pure-button pure-button-primary">Send Message</button>
+        </fieldset>
+    </form>
+    </div>
+    </div>
+  </body>
+</html>
